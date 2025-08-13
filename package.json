@@ -1,0 +1,24 @@
+{
+  "name": "tipjar",
+  "version": "1.0.0",
+  "description": "1. Create a new GitHub repository and push the project files.\r 2. In Netlify, click \"New site from Git\" and connect your repo.\r 3. In Netlify site settings → Build & deploy → Environment:\r    - Add `STRIPE_SECRET_KEY` with your Stripe **secret** key (starts with sk_...)\r 4. Edit `index.html` and replace `pk_test_REPLACE_ME` with your Stripe **publishable** key (starts with pk_...).\r 5. Deploy the site. Netlify will build and serve your static files and serverless functions.\r 6. In Netlify DNS or your domain provider, create a CNAME for `donate.edsvel.com` pointing to your Netlify site (or set the domain in Netlify's Domain settings).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thevelazquez/tipjar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thevelazquez/tipjar/issues"
+  },
+  "homepage": "https://github.com/thevelazquez/tipjar#readme",
+  "dependencies": {
+    "stripe": "^18.4.0"
+  }
+}
