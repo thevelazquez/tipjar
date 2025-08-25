@@ -94,17 +94,14 @@
     function setAmount(value){ amountValue = value; startIntent(amountValue); }
     function showCustom(){ document.getElementById('custom-area').style.display='block'; amountValue=0; updateDisplay(); }
     function appendNumber(n){
-      // Build amount as digits without decimal; we'll convert to dollars allowing cents by inserting a '.' if desired
-      // Simpler approach: keep number as string and format
       const display = document.getElementById('custom-display');
+      //set "cur" to the presented value while removing the dollar sign
       let cur = display.textContent.replace('$','') || '0';
+      //don't do anything if cur is equal to 0 (?)
       if(cur === '0') cur = '';
+      //append the inserted number to the end of the string and then multiply it by 10 to shift the digits to their correct place
       cur = cur + n.toString();
-      // allow up to cents (we'll treat last two digits as cents if length>2)
-      let dollars = cur;
-      if(cur.length <= 2) dollars = (parseInt(cur||'0')/100).toFixed(2);
-      else dollars = (parseInt(cur)/100).toFixed(2);
-      amountValue = parseFloat(dollars);
+      amountValue = parseFloat(cur)*10
       updateDisplay();
     }
     function deleteNumber(){
